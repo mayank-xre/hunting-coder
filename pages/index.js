@@ -12,7 +12,7 @@ export default function Home(props) {
           Hunting Coder
         </h1>
         <div className={styles.imageWrap}>
-          <Image className={styles.myImg} src="/homeimg.jpg" width={237} height={158}></Image>
+          <Image className={styles.myImg} src="/homeimg.jpg" width={157} height={158}></Image>
         </div>
         <p className={styles.description}>
           For Hunting Coders By a coder
@@ -24,7 +24,7 @@ export default function Home(props) {
               return (
                 <div className='blogItem' key={blog.KeyTag}>
                   <Link href={`blogpost/${blog.KeyTag}`}><h2 className={styles.h2}>{blog.title}</h2></Link>
-                  <p>{blog.content.substr(0, 200)}...<Link href={`blogpost/${blog.KeyTag}`}>Read More</Link></p>
+                  <p>{blog.content.substr(0, 200)}... <Link href={`blogpost/${blog.KeyTag}`} className={styles.read}>Read More</Link></p>
                 </div>
               )
             })
