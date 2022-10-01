@@ -1,0 +1,7 @@
+{
+    "KeyTag":"how_to_learn_javascript",
+    "title":"How to learn javascript",
+    "content":"Have a Next.js blog with only 2 routes: / and /posts/:slug. When I'm on /posts/my-post-title, and I click on the back link (to /), all is fine. The page loads fast (no refresh). When I'm on /, and I click on /posts/my-post-title, the page refreshes and I can't figure out why. Any suggestion? Links: blog, sources",
+    "author":"Someone",
+    "id":236
+}

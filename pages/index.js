@@ -1,14 +1,12 @@
-import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home(props) {
+  const [LatBlogs, setLatBlogs] = useState(props.Blogs)
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Hunting Coder</title>
-      </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           Hunting Coder
@@ -21,10 +19,16 @@ export default function Home() {
         </p>
         <div className='blogs'>
           <h1>Latest Blogs</h1>
-          <div className='blogItem'>
-            <h2>How to learn javascript in 2022</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa neque cupiditate a earum vero qui</p>
-          </div>
+          {
+            LatBlogs.map((blog) => {
+              return (
+                <div className='blogItem' key={blog.KeyTag}>
+                  <Link href={`blogpost/${blog.KeyTag}`}><h2 className={styles.h2}>{blog.title}</h2></Link>
+                  <p>{blog.content.substr(0, 200)}...<Link href={`blogpost/${blog.KeyTag}`}>Read More</Link></p>
+                </div>
+              )
+            })
+          }
         </div>
       </main>
 
@@ -42,4 +46,12 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  const data = await fetch("http://localhost:3000/api/getLatest");
+  const Blogs = await data.json();
+  return {
+    props: { Blogs }
+  }
 }

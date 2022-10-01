@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  padding: 0 12rem;
 }
 
 .main {
@@ -140,6 +140,7 @@
   margin: 0 24px;
   list-style: none;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .myImg {
@@ -148,4 +149,8 @@
 
 .imageWrap{
   padding: 20px 0px;
+}
+
+.h2 {
+  cursor: pointer;
 }
