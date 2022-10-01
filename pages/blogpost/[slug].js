@@ -20,4 +20,3 @@ export async function getServerSideProps(context) {
     props: { Blog }
   }
 }
-export default Slug
