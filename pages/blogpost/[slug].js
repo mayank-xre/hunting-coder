@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../../styles/BlogPost.module.css'
 import ErrorPage from 'next/error'
 
 const Slug = (props) => {
@@ -11,8 +10,8 @@ const Slug = (props) => {
     return {__html: content};
   }
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
+    <div className="">
+      <main className="">
         <h1>{Blog.Title}</h1>
         <div dangerouslySetInnerHTML={createMarkup(Blog.Content)}/>
       </main>
