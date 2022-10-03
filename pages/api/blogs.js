@@ -22,7 +22,7 @@ export default async function handler(req,res){
         }
         catch(err){
             console.log(err);
-            return res.status(500).json({"error":"Internal Server Error"});
+            return res.status(200).json({"Error":"Internal Server Error"});
         }
     }
     return res.status(200).json(Blogs);

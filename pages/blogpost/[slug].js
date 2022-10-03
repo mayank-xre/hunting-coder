@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import styles from '../../styles/BlogPost.module.css'
+import ErrorPage from 'next/error'
+
 const Slug = (props) => {
   const [Blog, setBlog] = useState(props.Blog);
+  if(Blog.Error){
+    return(<ErrorPage statusCode={500}/>)
+  }
   function createMarkup(content) {
     return {__html: content};
   }
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1>{Blog.title}</h1>
-        <div dangerouslySetInnerHTML={createMarkup(Blog.content)}/>
+        <h1>{Blog.Title}</h1>
+        <div dangerouslySetInnerHTML={createMarkup(Blog.Content)}/>
       </main>
     </div>
   )

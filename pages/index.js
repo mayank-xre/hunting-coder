@@ -2,9 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
+import ErrorPage from 'next/error'
 
 export default function Home(props) {
   const [LatBlogs, setLatBlogs] = useState(props.Blogs)
+  if(LatBlogs.Error){
+    return(
+      <ErrorPage errorStatus={500}/>
+    )
+  }
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -22,9 +28,9 @@ export default function Home(props) {
           {
             LatBlogs.map((blog) => {
               return (
-                <div className='blogItem' key={blog.KeyTag}>
-                  <Link href={`blogpost/${blog.KeyTag}`}><h2 className={styles.h2}>{blog.title}</h2></Link>
-                  <p>{blog.content.substr(0, 200)}... <Link href={`blogpost/${blog.KeyTag}`} className={styles.read}>Read More</Link></p>
+                <div className='blogItem' key={blog.Id}>
+                  <Link href={`blogpost/${blog.KeyTag}`}><h2 className={styles.h2}>{blog.Title}</h2></Link>
+                  <p>{blog.MetaDesc.substr(0, 200)}... <Link href={`blogpost/${blog.KeyTag}`} className={styles.read}>Read More</Link></p>
                 </div>
               )
             })

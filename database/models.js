@@ -1,8 +1,5 @@
 const {Sequelize, DataTypes}=require("sequelize");
-const path = require('path')
-//require('dotenv').config({path: path.relative(process.cwd(), path.join(__dirname,'.env'))});
-console.log(process.env.DB_HOST)
-//require('dotenv').config({ path: require('find-config')('.env') })
+//console.log(process.env.DB_HOST)
 const sequelize=new Sequelize(`postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/HuntingCode`);
 const Writer=sequelize.define('Writer',{
     FirstName:{
@@ -18,11 +15,15 @@ const Writer=sequelize.define('Writer',{
     },
     AuthName:{
         type:DataTypes.STRING(100),
-        allowNull:false
+        allowNull:false,
     },
     PassHash:{
         type:DataTypes.STRING(100),
         allowNull:false   
+    },
+    Session_Id:{
+        type:DataTypes.STRING,
+        allowNull:true
     }
 },{
     tableName:'Writers'

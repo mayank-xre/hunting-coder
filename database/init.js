@@ -1,4 +1,5 @@
 const sequelize = require("./models");
+
 async function InitTables() {
     await sequelize.models.Writer.sync();
     await sequelize.models.Blog.sync();
