@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styles from "../styles/Contact.module.css"
 
 const Contact = () => {
   const [Name, setName] = useState('')
@@ -29,22 +28,22 @@ const Contact = () => {
     else if (e.target.id === 'TextArea') { setDesc(e.target.value) }
   }
   return (
-    <div className={styles.container}>
-      <h1>Contact Us</h1>
+    <div className="text-white container my-20 px-36">
+      <h1 className='text-2xl'>Contact Us</h1>
       <form onSubmit={handleSubmit}>
-        <div className={styles.mb3}>
-          <label htmlFor="Name" className={styles.formlabel}>Name</label>
-          <input className={styles.input} type="text" value={Name} onChange={handleChange} required id="Name" />
+        <div className="flex flex-col">
+          <label htmlFor="Name" className="text-lg">Name</label>
+          <input className="w-6/12 h-8 bg-slate-800 rounded border border-x-2 border-y-2 border-gray-600 outline-gray-600" type="text" value={Name} onChange={handleChange} required id="Name" />
         </div>
-        <div className={styles.mb3}>
-          <label htmlFor="Email" className={styles.formlabel}>Email</label>
-          <input className={styles.input} type="email" onChange={handleChange} required value={Email} id="Email" />
+        <div className="flex flex-col">
+          <label htmlFor="Email" className="text-lg">Email</label>
+          <input className="w-6/12 h-8 bg-slate-800 rounded border border-x-2 border-y-2 border-gray-600 outline-gray-600" type="email" onChange={handleChange} required value={Email} id="Email" />
         </div>
-        <div className={styles.mb3}>
-          <label htmlFor="TextArea" className={styles.formlabel}>Desc</label>
-          <textarea className={styles.textarea} id="TextArea" onChange={handleChange} value={Desc} required></textarea>
+        <div className="flex flex-col">
+          <label htmlFor="TextArea" className="text-lg">Desc</label>
+          <textarea className="w-6/12 h-48 bg-slate-800 rounded border border-x-2 border-y-2 border-gray-600 outline-gray-600" id="TextArea" onChange={handleChange} value={Desc} required></textarea>
         </div>
-        <button className={styles.btn} type="submit">Send</button>
+        <button className="my-4 bg-violet-600 hover:bg-violet-800 rounded w-16 h-8" type="submit">Send</button>
       </form>
     </div>
   )

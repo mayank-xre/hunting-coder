@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
-import styles from '../styles/Blog.module.css'
 import ErrorPage from 'next/error'
 
 const Blogs = (props) => {
@@ -11,14 +10,14 @@ const Blogs = (props) => {
     )
   }
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
+    <div className=" container text-white">
+      <main className="container px-36">
         {Blogs.map((blog) => {
           return (
-            <div key={blog.Id}>
+            <div key={blog.Id} className="container my-2">
               <Link href={`blogpost/${blog.KeyTag}`}>
-                <h2 className={styles.h2}>{blog.Title}</h2></Link>
-              <p>{blog.MetaDesc.substr(0, 300)}...<Link href={`blogpost/${blog.KeyTag}`}>Read more</Link></p>
+                <h2 className="text-2xl">{blog.Title}</h2></Link>
+              <p className='text-lg'>{blog.MetaDesc.substr(0, 300)}...<Link href={`blogpost/${blog.KeyTag}`}>Read more</Link></p>
             </div>)
         })}
       </main>

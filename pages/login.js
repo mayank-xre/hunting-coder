@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import {ToastContainer,toast} from 'react-toastify'
-import styles from "../styles/Login.module.css"
 
 const Login = () => {
     const [Email, setEmail] = useState('')
@@ -38,19 +37,18 @@ const Login = () => {
     }
     return (
         <>
-        <ToastContainer position="top-right" autoClose={5000}/>
-        <div className={styles.container}>
-            <h1>Login</h1>
+        <div className="container text-white my-20 px-36">
+            <h1 className='text-2xl my-4 text-left'>Login</h1>
             <form onSubmit={handleSubmit}>
-                <div className={styles.mb3}>
-                    <label htmlFor="Email" className={styles.formlabel}>Email</label>
-                    <input id="Email" className={styles.input} value={Email} onChange={handleChange} type="Email"></input>
+                <div className="flex flex-col">
+                    <label htmlFor="Email" className="text-lg">Email</label>
+                    <input id="Email" className="w-6/12 h-8 bg-slate-800 rounded border border-x-2 border-y-2 border-gray-600 outline-gray-600" value={Email} onChange={handleChange} type="Email"></input>
                 </div>
-                <div className={styles.mb3}>
-                    <label htmlFor="PassWord" className={styles.formlabel}>Password</label>
-                    <input id="Password" className={styles.input} value={Pass} onChange={handleChange} type="Password"></input>
+                <div className="flex flex-col my-4">
+                    <label htmlFor="PassWord" className="text-lg">Password</label>
+                    <input id="Password" className="w-6/12 h-8 bg-slate-800 rounded border border-x-2 border-y-2 border-gray-600 outline-gray-600" value={Pass} onChange={handleChange} type="Password"></input>
                 </div>
-                <button className={styles.btn} type="submit">Login</button>
+                <button className="bg-violet-600 hover:bg-violet-800 rounded w-16 h-8" type="submit">Login</button>
             </form>
         </div>
         </>
