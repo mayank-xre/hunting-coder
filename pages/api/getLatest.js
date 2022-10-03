@@ -12,7 +12,7 @@ export default async function handler(req,res){
             }
         }
     });
-    /*const search=await sequelize.models.Blog.findAll();*/
+    //const search=await sequelize.models.Blog.findAll();
     let Blogs=[];
     console.log(search.length)
     for(let i=0;i<search.length;i++){
@@ -22,7 +22,7 @@ export default async function handler(req,res){
         }
         catch(err){
             console.log(err);
-            return res.status(500).json({"error":"Internal Server Error"});
+            return res.status(500).json({"Error":"Internal Server Error"});
         }
     }
     return res.status(200).json(Blogs);
